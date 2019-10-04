@@ -43,10 +43,9 @@ def most_popular_article_authors():
 
 
 def define_error():
-    errors_pescent = ''' SELECT * FROM percentage_errors WHERE percentage > 1
-    ORDER BY percentage_errors.percentage DESC;'''
+    c.execute(''' SELECT * FROM percentage_errors WHERE percentage > 1
+    ORDER BY percentage_errors.percentage DESC;''')
 
-    c.execute(errors_pescent)
     result = c.fetchall()
     for (date, percentage) in result:
         print("   {} - {}% Errors".format(date, percentage))
