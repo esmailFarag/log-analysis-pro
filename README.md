@@ -51,7 +51,7 @@ This project makes use of Udacity's Linux-based virtual machine (VM) configurati
      CREATE VIEW total_view AS SELECT date(time), COUNT(*) AS totview
      FROM log 
      GROUP BY date(time) 
-     ORDER BY totaltime;
+     ORDER BY totview;
 ```
 
 
