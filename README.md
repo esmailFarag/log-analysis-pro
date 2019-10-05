@@ -46,6 +46,30 @@ This project makes use of Udacity's Linux-based virtual machine (VM) configurati
 4. ```psql -d news -f newsdata.sql``` to load the data and create the tables.
 5. ```python3 newsdata.py``` to run the reporting tool.
 
+# View 
+``` sql 
+     CREATE VIEW total_view AS SELECT date(time), COUNT(*) AS totview
+     FROM log 
+     GROUP BY date(time) 
+     ORDER BY totaltime;
+```
+
+
+``` sql 
+     CREATE VIEW total_errors AS SELECT date(time), COUNT(*) AS errview
+     FROM log WHERE status= '404 NOT FOUND' 
+     GROUP BY date(time) 
+     ORDER BY errview;
+```
+``` sql 
+    CREATE VIEW percentage_errors AS
+    SELECT total_view.date, 
+    round((total_errors.errview*100.0/total_view.totview), 3)AS percentage
+    FROM total_view, total_errors
+    WHERE total_view.date = total_errors.date
+    ORDER BY total_view.date;
+``` 
+
 
 # Helpful Resources (README.md)
 Python code quality
