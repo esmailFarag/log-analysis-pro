@@ -45,6 +45,7 @@ This project makes use of Udacity's Linux-based virtual machine (VM) configurati
 3. ```cd /vagrant``` to change to your vagrant directory.
 4. ```psql -d news -f newsdata.sql``` to load the data and create the tables.
 5. ```python3 newsdata.py``` to run the reporting tool.
+6. Create view tables using the following command 
 
 # View 
 ``` sql 
